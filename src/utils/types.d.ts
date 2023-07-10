@@ -1,0 +1,5 @@
+type Anchor = "top-left" | "top-right" | "bottom-left" | "bottom-right"
+// | "left"
+// | "right"
+// | "top"
+// | "bottom"
