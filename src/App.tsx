@@ -1,17 +1,21 @@
-import { Tooltip } from "./shared/components"
+import { Modal, Tooltip } from "./shared/components"
+import { useModal } from "./shared/hooks"
 
 const App = () => {
+  const { ref, handleOpen, handleClose } = useModal()
   return (
-    <main className="min-h-screen w-full overflow-auto flex justify-end p-10 pt-[100px] bg-neutral-200">
-      <Tooltip
-        content="tooltip  test primer tooltip que se vea bien asdnalsdkmaslk alskdmlaksmdlkasmd laskdmlaskdmlaksmdlkasmd alskdmlaskmdlkasmd lasdmlkasm dlkasmdlaksmd lasdkmlaksmdlaksdmalskdm alksdmlaksdmlaksdl alskdalskmd lmasl"
-        anchor="top-left"
-      >
-        <span className="bg-blue-500 text-white px-3 py-1.5 rounded-full inline-block">
-          HOVER ME
-        </span>
+    <main className="min-h-screen w-full overflow-auto flex justify-center p-10 pt-[100px] bg-neutral-200">
+      <Tooltip content="click para abrir modal" anchor="top-left">
+        <button
+          onClick={handleOpen}
+          className="bg-blue-500 text-white px-3 py-1.5 rounded-full inline-block"
+        >
+          Open modal
+        </button>
       </Tooltip>
-      <div className="h-[2000px]">asd</div>
+      <Modal ref={ref} title="MODAL" onClose={handleClose}>
+        cositas
+      </Modal>
     </main>
   )
 }
