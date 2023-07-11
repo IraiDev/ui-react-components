@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react"
-import { useWindowSize, useHover, useWindowScroll } from "@uidotdev/usehooks"
+import { useCallback, useLayoutEffect, useRef, useState } from "react"
+import { useWindowSize, useHover } from "@uidotdev/usehooks"
 
 interface Props {
   anchor?: Anchor
@@ -9,11 +9,9 @@ interface Props {
 
 export function useFloating({
   anchor = "bottom-left",
-  defaultOpen = false,
-  controlled = false
+  defaultOpen = false
 }: Props) {
   const windowSize = useWindowSize()
-  const [scroll] = useWindowScroll()
   const [wrapperRef, hovering] = useHover()
   const containerRef = useRef<HTMLSpanElement | HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState<boolean>(defaultOpen)
@@ -35,7 +33,7 @@ export function useFloating({
     setIsOpen((prev) => !prev)
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const wrapper = wrapperRef.current
     const container = containerRef.current
     if (wrapper === null || container === null) return
@@ -145,12 +143,7 @@ export function useFloating({
     }
 
     setAnchor(position[anchor])
-  }, [wrapperRef, containerRef, windowSize, anchor, arrowSizes])
-
-  useEffect(() => {
-    if (!controlled) return
-    setIsOpen(false)
-  }, [scroll, controlled])
+  }, [wrapperRef, containerRef, windowSize, isOpen, anchor])
 
   return {
     hovering,

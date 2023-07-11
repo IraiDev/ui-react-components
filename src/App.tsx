@@ -5,6 +5,7 @@ import {
   ModalFooter,
   Tooltip
 } from "./shared/components"
+import { Popover } from "./shared/components/Popover"
 import { useDialog } from "./shared/hooks"
 
 const App = () => {
@@ -39,8 +40,22 @@ const App = () => {
         Esta seguro de realizar esta accion <br />{" "}
         <strong className="font-semibold">borrar todos los usuarios</strong>
       </Alert>
+      <Popover
+        RenderButton={(handleToggle) => <Btn onClick={handleToggle} />}
+      />
     </main>
   )
 }
 
 export default App
+
+const Btn = (props: { onClick(): void }) => {
+  return (
+    <button
+      onClick={props.onClick}
+      className="bg-orange-500 text-white px-3 py-1.5 rounded-full h-max"
+    >
+      Abrir popover
+    </button>
+  )
+}
