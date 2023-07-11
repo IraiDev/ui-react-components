@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react"
 
-export function useModal(initialOpen?: boolean) {
+export function useDialog(initialOpen?: boolean) {
   const ref = useRef<HTMLDialogElement>(null)
 
   const handleOpen = () => {
@@ -26,9 +26,5 @@ export function useModal(initialOpen?: boolean) {
     }
   }, [ref, initialOpen])
 
-  return {
-    ref,
-    handleClose,
-    handleOpen
-  }
+  return [ref, handleOpen, handleClose] as const
 }
