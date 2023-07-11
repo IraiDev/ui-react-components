@@ -25,7 +25,7 @@ export const Alert = React.forwardRef(
         </header>
         <section
           className={twMerge(
-            "px-3 py-2 text-gray-600 text-sm leading-5 hyphens-auto break-words",
+            "px-3 py-2 text-gray-600 leading-6 font-light hyphens-auto break-words",
             props.className
           )}
         >

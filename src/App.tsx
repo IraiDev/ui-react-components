@@ -37,7 +37,7 @@ const App = () => {
       </Modal>
       <Alert ref={alertRef} onClose={closeAlert}>
         Esta seguro de realizar esta accion <br />{" "}
-        <strong>borrar todos los usuarios</strong>
+        <strong className="font-semibold">borrar todos los usuarios</strong>
       </Alert>
     </main>
   )

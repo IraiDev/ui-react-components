@@ -50,26 +50,6 @@ export function useFloating({
     const windowWidth = windowSize.width
 
     const position: Record<Anchor, AnchorState> = {
-      // bottom: {
-      //   x: topAndBottomXPosition,
-      //   y: bottom + height * arrowFactor,
-      //   currentAnchor: "bottom"
-      // },
-      // left: {
-      //   x: right - width - containerWidth - arrowSizes,
-      //   y: leftAndRightYPosition,
-      //   currentAnchor: "left"
-      // },
-      // right: {
-      //   x: left + width + arrowSizes,
-      //   y: leftAndRightYPosition,
-      //   currentAnchor: "right"
-      // },
-      // top: {
-      //   x: topAndBottomXPosition,
-      //   y: top - height * arrowFactor - containerHeigth,
-      //   currentAnchor: "top"
-      // },
       "bottom-left": {
         x: left,
         y: bottom + height * arrowFactor,
@@ -165,7 +145,7 @@ export function useFloating({
     }
 
     setAnchor(position[anchor])
-  }, [wrapperRef, containerRef, windowSize, anchor])
+  }, [wrapperRef, containerRef, windowSize, anchor, arrowSizes])
 
   useEffect(() => {
     if (!controlled) return
@@ -204,5 +184,5 @@ const arrowPosition: Record<Anchor, string> = {
   "top-right": "-bottom-1.5 right-5 border-t-0 border-l-0"
 }
 
-const arrowSizes = 10
-const arrowFactor = 0.3
+const arrowFactor = 0.3,
+  arrowSizes = 10
