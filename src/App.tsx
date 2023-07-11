@@ -1,4 +1,4 @@
-import { Modal, Tooltip } from "./shared/components"
+import { Modal, ModalBody, ModalFooter, Tooltip } from "./shared/components"
 import { useModal } from "./shared/hooks"
 
 const App = () => {
@@ -13,8 +13,14 @@ const App = () => {
           Open modal
         </button>
       </Tooltip>
-      <Modal ref={ref} title="MODAL" onClose={handleClose}>
-        cositas
+      <Modal
+        ref={ref}
+        title="MODAL"
+        onClose={handleClose}
+        className="w-[1000px]"
+      >
+        <ModalBody className="h-[1000px]">cuerpo del modal</ModalBody>
+        <ModalFooter>Acciones del modal</ModalFooter>
       </Modal>
     </main>
   )
