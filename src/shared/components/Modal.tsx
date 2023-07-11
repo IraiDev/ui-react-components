@@ -20,7 +20,7 @@ export const Modal = React.forwardRef(
       <dialog
         ref={ref}
         className={twMerge(
-          "rounded-xl backdrop:bg-black/20 backdrop:backdrop-blur-sm p-0 w-72 scroll__app",
+          "rounded-xl backdrop:bg-black/20 backdrop:backdrop-blur p-0 w-72 scroll__app shadow-lg",
           props.className
         )}
       >

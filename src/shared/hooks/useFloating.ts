@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { useWindowSize, useHover, useWindowScroll } from "@uidotdev/usehooks"
 
 interface Props {
@@ -35,7 +35,7 @@ export function useFloating({
     setIsOpen((prev) => !prev)
   }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const wrapper = wrapperRef.current
     const container = containerRef.current
     if (wrapper === null || container === null) return
@@ -167,7 +167,7 @@ export function useFloating({
     setAnchor(position[anchor])
   }, [wrapperRef, containerRef, windowSize, anchor])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!controlled) return
     setIsOpen(false)
   }, [scroll, controlled])

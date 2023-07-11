@@ -1,5 +1,5 @@
 import React from "react"
-import { twMerge } from "tailwind-merge"
+import { twJoin, twMerge } from "tailwind-merge"
 
 interface Props {
   title?: string
@@ -15,7 +15,10 @@ export const Alert = React.forwardRef(
     return (
       <dialog
         ref={ref}
-        className="p-0 min-w-[290px] max-w-md divide-y divide-gray-300 rounded-xl shadow-lg overflow-hidden -top-[82%]"
+        className={twJoin(
+          "p-0 min-w-[290px] max-w-md divide-y divide-gray-300 rounded-xl shadow-lg overflow-hidden -top-[82%]",
+          "backdrop:bg-black/20 backdrop:backdrop-blur"
+        )}
       >
         <header hidden={title === ""} className="p-2">
           <h3 className="font-semibold">{title}</h3>

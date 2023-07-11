@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 export function useDialog(initialOpen?: boolean) {
   const ref = useRef<HTMLDialogElement>(null)
@@ -17,7 +17,7 @@ export function useDialog(initialOpen?: boolean) {
     dialog.close()
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!initialOpen || ref.current === null) return
     ref.current.showModal()
 
